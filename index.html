@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<title>首页</title>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script src="fastclick.js"></script>
+	<script type="text/javascript">
+		document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + "px";
+		window.addEventListener("resize", function () {
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + "px";
+		}, false);
+		window.addEventListener('load', function () {
+			new FastClick(document.body);
+		}, false);
+	</script>
+	<style type="text/css">
+		body {
+			background: url(img/fish.jpg) no-repeat;
+			background-size: cover;
+		}
+
+		#wrap {
+			width: 100%;
+			height: 100%;
+			perspective: 800px;
+		}
+
+		#img_wrap {
+			width: 100%;
+			height: 100%;
+			transform-style: preserve-3d;
+			position: relative;
+		}
+
+		#create {
+			position: fixed;
+			bottom: 0.4rem;
+			left: 1rem;
+			width: 5.5rem;
+			height: 1rem;
+			background: rgba(0, 0, 0, .5);
+			text-align: center;
+			line-height: 1rem;
+			color: #FFFFFF;
+			font-size: 0.32rem;
+			font-weight: 900;
+		}
+
+		@keyframes scal {
+			0% {
+				transform: rotateY(0deg)
+			}
+
+			5% {
+				transform: rotateY(3deg)
+			}
+
+			10% {
+				transform: rotateY(6deg)
+			}
+
+			15% {
+				transform: rotateY(9deg)
+			}
+
+			20% {
+				transform: rotateY(12deg)
+			}
+
+			25% {
+				transform: rotateY(15deg)
+			}
+
+			30% {
+				transform: rotateY(12deg)
+			}
+
+			35% {
+				transform: rotateY(9deg)
+			}
+
+			40% {
+				transform: rotateY(6deg)
+			}
+
+			45% {
+				transform: rotateY(3deg)
+			}
+
+			50% {
+				transform: rotateY(0deg)
+			}
+
+			55% {
+				transform: rotateY(-3deg)
+			}
+
+			60% {
+				transform: rotateY(-6deg)
+			}
+
+			65% {
+				transform: rotateY(-9deg)
+			}
+
+			70% {
+				transform: rotateY(-12deg)
+			}
+
+			75% {
+				transform: rotateY(-15deg)
+			}
+
+			80% {
+				transform: rotateY(-12deg)
+			}
+
+			85% {
+				transform: rotateY(-9deg)
+			}
+
+			90% {
+				transform: rotateY(-6deg)
+			}
+
+			95% {
+				transform: rotateY(-3deg)
+			}
+
+			100% {
+				transform: rotateY(0deg)
+			}
+		}
+
+		@keyframes scal1 {
+			0% {
+				transform: rotateY(180deg)
+			}
+
+			5% {
+				transform: rotateY(183deg)
+			}
+
+			10% {
+				transform: rotateY(186deg)
+			}
+
+			15% {
+				transform: rotateY(189deg)
+			}
+
+			20% {
+				transform: rotateY(192deg)
+			}
+
+			25% {
+				transform: rotateY(195deg)
+			}
+
+			30% {
+				transform: rotateY(192deg)
+			}
+
+			35% {
+				transform: rotateY(189deg)
+			}
+
+			40% {
+				transform: rotateY(186deg)
+			}
+
+			45% {
+				transform: rotateY(183deg)
+			}
+
+			50% {
+				transform: rotateY(180deg)
+			}
+
+			55% {
+				transform: rotateY(177deg)
+			}
+
+			60% {
+				transform: rotateY(174deg)
+			}
+
+			65% {
+				transform: rotateY(171deg)
+			}
+
+			70% {
+				transform: rotateY(168deg)
+			}
+
+			75% {
+				transform: rotateY(165deg)
+			}
+
+			80% {
+				transform: rotateY(168deg)
+			}
+
+			85% {
+				transform: rotateY(171deg)
+			}
+
+			90% {
+				transform: rotateY(174deg)
+			}
+
+			95% {
+				transform: rotateY(177deg)
+			}
+
+			100% {
+				transform: rotateY(180deg)
+			}
+		}
+
+		#draw {
+			position: fixed;
+			bottom: 0.6rem;
+			left: 2rem;
+			display: block;
+			width: 3.5rem;
+			height: 0.8rem;
+			font-weight: 900;
+			color: #91b404;
+			line-height: 0.8rem;
+			background: rgba(0, 0, 0, .7);
+			border-radius: 0.2rem;
+			text-align: center;
+			font-size: 0.34rem;
+			text-decoration: none;
+		}
+
+		.music_a {
+			width: 0.72rem;
+			height: 0.72rem;
+			position: absolute;
+			top: 0.2rem;
+			right: 0.2rem;
+			z-index: 3;
+		}
+
+		.music_a img {
+			width: 0.72rem;
+			height: 0.72rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.music_img {
+			animation: rot 2.5s linear infinite;
+		}
+
+		@keyframes rot {
+			from {
+				transform: rotate(0deg)
+			}
+
+			to {
+				transform: rotate(360deg)
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="wrap">
+		<div id="img_wrap">
+
+
+		</div>
+	</div>
+
+	<!--背景音乐-->
+	<div class="music_a">
+		<img id="music_img" class="music_img" src="img/music.png" />
+		<audio id="audio" autoplay="autoplay" loop="loop" src="music/step1.mp3">
+			<source src="music/step1.mp3" type="audio/ogg">
+			<source src="music/step1.mp3" type="audio/mpeg">
+		</audio>
+	</div>
+
+	<a id="draw" href="hua.html">去画鱼</a>
+
+	<script src='//res.wx.qq.com/open/js/jweixin-1.1.0.js'></script>
+	<script type="text/javascript">
+		//微信ios不能自动播放问题
+		document.getElementById('audio').play();
+		document.addEventListener("WeixinJSBridgeReady", function () {
+			document.getElementById('audio').play();
+		}, false);
+
+		//音乐
+		var music_off = true;
+		var oAudio = document.getElementById("audio");
+		$('#music_img').click(function () {
+			if (music_off) {
+				$(this).removeClass("music_img");
+				oAudio.pause();
+			} else {
+				$(this).addClass("music_img");
+				oAudio.play();
+			}
+			music_off = !music_off;
+		});
+
+
+		var theSrc = window.localStorage.getItem("theSrc");
+		if (!theSrc) {
+			window.location.href = "hua.html";
+		}
+		var viewHeight = window.innerHeight || document.documentElement.clientHeight;
+		var viewWidth = window.innerWidth || document.documentElement.clientWidth;
+		//我也要制作
+		$("#create").on("click", function () {
+			window.location.href = "hua.html";
+		});
+
+		//特效封装
+		function scrollImg(ele, dir) {
+			var the_top = Math.random() > 0.5 ? true : false;
+			var _top = 0;
+			if (Math.random() < 0.33) {
+				_top = 80;
+			} else if (Math.random() < 0.66 && Math.random() >= 0.33) {
+				_top = -80;
+			} else {
+				_top = 0;
+			}
+			var tops = $(window).height() * (Math.floor(Math.random() * (5 - 2 + 1)) + 2) / 10;
+			var speed_up = $(window).width() * (Math.random() * 10 + 3) / 10;
+			//				var L=0;
+			ele.css("top", tops);
+			//jq动画
+			if (dir == "left") {
+				ele.css("left", "-1.6rem");
+				ele.animate({
+					"left": $(window).width() * Math.random(),
+					"top": tops + _top,
+				}, 5000, function () {
+					setTimeout(function () {
+						if (Math.random() < 0.33) {
+							_top = 100;
+						} else if (Math.random() < 0.66 && Math.random() >= 0.33) {
+							_top = -100;
+						} else {
+							_top = 0;
+						}
+						ele.animate({
+							"left": $(window).width(),
+							"top": tops + _top,
+						}, 2000, function () {
+							ele.remove();
+						})
+					}, 300)
+				})
+			} else if (dir == "right") {
+				ele.css("right", "-1.6rem");
+				ele.animate({
+					"right": $(window).width() * (Math.random() + 0.2),
+					"top": tops + _top,
+				}, 5000, function () {
+					setTimeout(function () {
+						if (Math.random() < 0.33) {
+							_top = 100;
+						} else if (Math.random() < 0.66 && Math.random() >= 0.33) {
+							_top = -100;
+						} else {
+							_top = 0;
+						}
+						ele.animate({
+							"right": $(window).width(),
+							"top": tops + _top,
+						}, 2000, function () {
+							ele.remove();
+						})
+					}, 300)
+				})
+			}
+
+		}
+		var id_n = 0;
+		var direction;
+		var flag;
+		var Off;
+		var time = setInterval(function () {
+			id_n++;
+			var img = document.createElement("img");
+			if (theSrc) {
+				img.src = theSrc;
+			} else {
+				img.src = "img/1.png";
+			}
+			img.className = "cd" + id_n;
+			img.className += " vvv";
+			img.style.position = "fixed";
+			img.style.zIndex = 120;
+			var img_width = (viewWidth * (Math.floor(Math.random() * (4 - 2 + 1)) + 2) / 10) / 100 + "rem";
+			img.style.width = img_width;
+			Math.random() > 0.5 ? flag = true : flag = false;
+			if (flag) {
+				direction = "left";
+				img.style.left = -img_width;
+				img.style.animation = "scal1 3s 0s infinite";
+			} else {
+				direction = "right";
+				img.style.right = -img_width;
+				img.style.animation = "scal 3s 0s infinite";
+			}
+			img.style.height = "auto";
+			$("#img_wrap").append(img);
+			scrollImg($(".cd" + id_n), direction);
+		}, 800)
+
+		//制造气泡
+		var class_num = 0;
+		var time_pao = setInterval(function () {
+			class_num++;
+			var img_pao = document.createElement("img");
+			img_pao.src = "img/pao.png";
+			img_pao.className = "ss" + class_num;
+			img_pao.className += " zzz";
+			img_pao.style.position = "fixed";
+			img_pao.style.bottom = "-0.1rem";
+			img_pao.style.width = "0.1rem";
+			img_pao.style.height = "0.1rem";
+			$("body").append(img_pao);
+			move_pao($(".ss" + class_num));
+		}, 600)
+
+		//泡沫运动函数封装
+		function move_pao(ele) {
+			ele.css("left", Math.random() * $(window).width());
+			var move_time = (Math.random() * (14 - 6 + 1) + 6) * 1000;
+			ele.animate({ "bottom": $(window).height(), "width": "0.5rem", "height": "0.5rem" }, move_time, function () {
+				ele.remove();
+			});
+		}
+
+	</script>
+</body>
+
+</html>

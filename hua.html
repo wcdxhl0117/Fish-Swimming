@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <script src="fastclick.js"></script>
+	<script type="text/javascript">
+		document.documentElement.style.fontSize = document.documentElement.clientWidth/7.5 +"px";
+		window.addEventListener("resize",function(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + "px";
+		},false);
+		window.addEventListener('load', function(){
+			new FastClick(document.body);
+		}, false);
+	</script>
+	<title>动手画</title>
+</head>
+<script src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="app.js" ></script>
+<link rel="stylesheet" href="style.css" />
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="era hidden" ></div>
+    <div class="tools">
+    	<ul class="colors">
+    		<li class="red"></li>
+    		<li class="yellow"></li>
+    		<li class="blue"></li>
+    		<li class="green"></li>
+    		<li class="black" style="border-radius: 0.2rem;"></li>
+    		<li class="purple"></li>
+    	</ul>
+    	<div class="weight">
+    		<p class="p1">细</p>
+    		<p class="p3 active">中</p>
+    		<p class="p5">粗</p>
+    	</div>
+    	<div class="clears">清除画布</div>
+    	<div class="eraser">橡皮擦</div>
+    	<div class="saveimg">保存图片</div>
+    </div>
+    <script type="text/javascript">
+    	//禁止页面拖动
+		document.body.addEventListener('touchmove', function(evt){
+      		evt.preventDefault();
+		});
+    	
+    	//保存路径
+		$(".saveimg").on("touchend",function(){
+			save();
+		});
+		
+		//清除画布
+		$(".clears").on("click",function(){
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+		});
+		
+    	
+    </script>
+</body>
+</html>
